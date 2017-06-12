@@ -150,13 +150,14 @@ def setup_git_repo():
     run(['git', 'status'])
     run(['git', 'add', '-A'])
     run(['git', 'status'])
-    run(['git', 'tag', '-a', '0.1.0', '-m', 'Initial release 0.1.0'])
     run(['git', 'commit', '-m', 'Initial commit'])
 
     {% if cookiecutter.create_remote == 'yes' %}
     create_remote_repo()
     run(['git', 'remote', 'add', 'origin', REMOTE_REPO_URL])
     run(['git', 'push', '-u', 'origin', 'master'])
+    run(['git', 'tag', '-a', '0.0.0', '-m', 'Initial release 0.0.0'])
+    run(['git', 'push', '--tags'])
     {% endif %}
 
 
