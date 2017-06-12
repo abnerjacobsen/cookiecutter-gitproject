@@ -71,7 +71,7 @@ patch-release: guard-GITHUB_TOKEN check-status check-release
 	@git push --tags
 	@changelog=$$(git log $(COMPARISON) --oneline --no-merges) ; \
 	echo "**Changelog $(NEXT_PATCH)**<br/>$$changelog"; \
-	tools/github-release release -u abnerjacobsen -r rootfs-alpine -t $(NEXT_PATCH) -n $(NEXT_PATCH) -d "**Changelog**<br/>$$changelog"
+	tools/github-release release -u {{cookiecutter.git_username}} -r {{cookiecutter.repository_slug}} -t $(NEXT_PATCH) -n $(NEXT_PATCH) -d "**Changelog**<br/>$$changelog"
 
 minor-release: guard-GITHUB_TOKEN check-status check-release
 	echo "Minor release $(NEXT_MINOR)..."
@@ -86,7 +86,7 @@ minor-release: guard-GITHUB_TOKEN check-status check-release
 	echo $(COMPARISON)
 	@changelog=$$(git log $(COMPARISON) --oneline --no-merges) ; \
 	echo "**Changelog $(NEXT_MINOR)**<br/>$$changelog"; \
-	tools/github-release release -u abnerjacobsen -r rootfs-alpine -t $(NEXT_MINOR) -n $(NEXT_MINOR) -d "**Changelog**<br/>$$changelog"
+	tools/github-release release -u {{cookiecutter.git_username}} -r {{cookiecutter.repository_slug}} -t $(NEXT_MINOR) -n $(NEXT_MINOR) -d "**Changelog**<br/>$$changelog"
 
 major-release: guard-GITHUB_TOKEN check-status check-release
 	echo "Major release $(NEXT_MAJOR)..."
@@ -100,7 +100,7 @@ major-release: guard-GITHUB_TOKEN check-status check-release
 	@git push --tags
 	@changelog=$$(git log $(COMPARISON) --oneline --no-merges) ; \
 	echo "**Changelog $(NEXT_MAJOR)**<br/>$$changelog"; \
-	tools/github-release release -u abnerjacobsen -r rootfs-alpine -t $(NEXT_MAJOR) -n $(NEXT_MAJOR) -d "**Changelog**<br/>$$changelog"
+	tools/github-release release -u {{cookiecutter.git_username}} -r {{cookiecutter.repository_slug}} -t $(NEXT_MAJOR) -n $(NEXT_MAJOR) -d "**Changelog**<br/>$$changelog"
 
 
 showver:
