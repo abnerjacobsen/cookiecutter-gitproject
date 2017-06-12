@@ -146,9 +146,11 @@ def setup_git_repo():
     {% endif %}
 
     run(['git', 'init'])
+    run(['git', 'config', '--global', 'credential.helper', 'cache'])
     run(['git', 'status'])
     run(['git', 'add', '-A'])
     run(['git', 'status'])
+    run(['git', 'tag', '-a', '0.1.0', '-m', 'Initial release 0.1.0'])
     run(['git', 'commit', '-m', 'Initial commit'])
 
     {% if cookiecutter.create_remote == 'yes' %}
