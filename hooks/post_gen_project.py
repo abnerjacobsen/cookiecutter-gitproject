@@ -144,6 +144,14 @@ def setup_git_repo():
         f.write(requests.get(GITIGNORE_URL))
     print("updated '{}'".format(GITIGNORE_PATH))
     {% endif %}
+    with open(GITIGNORE_PATH, 'a') as f:
+        f.write("\n\n")
+        f.write("### Custom ###\n")
+        f.write("tools/bump\n")
+        f.write("tools/github-release\n")
+        f.write("dist/\n")
+        f.write("build/\n")
+    print("updated '{}'".format(GITIGNORE_PATH))
 
     run(['git', 'init'])
     run(['git', 'config', '--global', 'credential.helper', 'cache'])

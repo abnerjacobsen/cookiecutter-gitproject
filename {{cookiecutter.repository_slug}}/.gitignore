@@ -1,6 +1,12 @@
 
 # Created by https://www.gitignore.io/api/windows,osx,linux,git
 
+### Custom ###
+tools/bump
+tools/github-release
+dist/
+build/
+
 ### Windows ###
 # Windows image file caches
 Thumbs.db
