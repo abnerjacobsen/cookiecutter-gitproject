@@ -65,10 +65,10 @@ docker-clean-dangling:
 	docker images --no-trunc -q -f dangling=true | xargs -r docker rmi
 
 docker-clean-dev:
-	-@docker rmi {{cookiecutter.git_username}}/{{cookiecutter.repository_slug}}-dev
+	-@docker rmi {{cookiecutter.repository_namespace}}/{{cookiecutter.repository_slug}}-dev
 
 docker-build-dev: clean docker-clean-dev rootfs-fixperms
-	docker build -f Dockerfile.dev -t {{cookiecutter.git_username}}/{{cookiecutter.repository_slug}}-dev .
+	docker build -f Dockerfile.dev -t {{cookiecutter.repository_namespace}}/{{cookiecutter.repository_slug}}-dev .
 
 install-tools:
 	sudo pip install gitchangelog pystache
